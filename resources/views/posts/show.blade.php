@@ -11,7 +11,6 @@
                 <div class="d-flex align-items-center">
                     <div class="pr-3">
                         <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle w-100" alt="avatar" style="max-width: 40px;">
-                        <!-- TODO: separate custom css file -->
                     </div>
                     <div>
                         <div class="font-weight-bold">
@@ -36,6 +35,32 @@
                     </span>
                     {{ $post->caption }}
                 </p>
+
+                <hr />
+
+                @include('comments.show', ['comments' => $post->comments, 'post_id' => $post->id])
+
+                <hr />
+                <form method="post" action="{{ route('comment.store', $post->id) }}">
+                    @csrf
+                    <div class="form-group">
+                        <textarea class="form-control" name="content"></textarea>
+                        <input type="hidden" name="post_id" value="{{ $post->id }}" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success" value="Add Comment" />
+                    </div>
+                </form>
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+
+                    @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                    @endforeach
+
+                </div>
+                @endif
             </div>
         </div>
     </div>

@@ -15,11 +15,13 @@ class CommentsController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'content' => 'required',
+            'content' => 'required | max:50',
+            'post_id' => 'required',
         ]);
 
         auth()->user()->comments()->create([
             'content' => $data['content'],
+            'post_id' => $data['post_id'],
         ]);
 
         return back();
