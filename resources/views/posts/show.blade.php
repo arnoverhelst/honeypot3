@@ -48,7 +48,7 @@
                         <input type="hidden" name="post_id" value="{{ $post->id }}" />
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-success" value="Add Comment" />
+                        <input type="submit" class="btn btn-dark btn-rounded" value="Add Comment" />
                     </div>
                 </form>
 
