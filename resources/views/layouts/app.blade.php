@@ -18,7 +18,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Animate.css -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" rel="stylesheet"></link>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" rel="stylesheet">
+    </link>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -64,6 +65,12 @@
                                 <a href="{{ route('profile.show', Auth::user()->id) }}" class="dropdown-item">
                                     Profile
                                 </a>
+
+                                @can('manage-users')
+                                <a href="{{ route('admin.users.index') }}" class="dropdown-item">
+                                    User Management
+                                </a>
+                                @endcan
 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

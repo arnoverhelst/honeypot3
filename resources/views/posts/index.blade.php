@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
+    @if($posts->isEmpty())
+    <div class="alert alert-secondary">
+        <p>Sorry {{ Auth::user()->name }}, There aren't any posts for you to display. <br />
+            Start following people to see their posts!
+        </p>
+    </div>
+    @else
+
     @foreach($posts as $post)
     <div class="row">
         <div class="col-6 offset-3">
@@ -26,6 +34,7 @@
         </div>
     </div>
     @endforeach
+    @endif
 
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
