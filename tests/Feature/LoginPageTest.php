@@ -13,9 +13,9 @@ class LoginPageTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testLoginPage()
     {
-        $response = $this->get('/');
+        $response = $this->get('/login');
 
         $response->assertStatus(200);
     }
