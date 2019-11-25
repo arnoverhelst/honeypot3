@@ -49,7 +49,6 @@ class UsersController extends Controller
         $user->roles()->detach();
         $user->profile()->delete();
         $user->posts()->delete();
-        $user->posts()->comments()->delete();
         $user->comments()->delete();
         $user->delete();
 

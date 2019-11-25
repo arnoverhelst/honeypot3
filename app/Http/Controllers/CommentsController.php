@@ -15,7 +15,7 @@ class CommentsController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'content' => 'required | max:50',
+            'content' => 'required | max:80',
             'post_id' => 'required',
         ]);
 
