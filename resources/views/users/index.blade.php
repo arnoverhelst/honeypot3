@@ -12,7 +12,6 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="col">#</th>
                                 <th class="col">Username</th>
                             </tr>
                         </thead>
@@ -20,7 +19,6 @@
                             @foreach($users as $user)
                             @if(!$user->hasRole('admin'))
                             <tr>
-                                <th scope="row">{{ $user->id}}</th>
                                 <td>
                                     <a href="{{ route('profile.show', $user->id) }}">{{ $user->username }}</a>
                                 </td>
