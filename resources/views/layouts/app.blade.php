@@ -66,6 +66,10 @@
                                     Profile
                                 </a>
 
+                                <a href="{{ route('users.index') }}" class="dropdown-item">
+                                    Users
+                                </a>
+
                                 @can('manage-users')
                                 <a href="{{ route('admin.users.index') }}" class="dropdown-item">
                                     User Management
