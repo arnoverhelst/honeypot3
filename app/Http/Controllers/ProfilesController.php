@@ -9,6 +9,11 @@ use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(User $user)
     {
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
@@ -51,9 +56,9 @@ class ProfilesController extends Controller
         $this->authorize('update', $user->profile);
 
         $data = request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'url' => 'url',
+            'title' => 'required|max:3O',
+            'description' => 'nullable|max:100',
+            'url' => 'nullable|url|max:100',
             'image' => '',
         ]);
 

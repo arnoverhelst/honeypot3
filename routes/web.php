@@ -33,6 +33,6 @@ Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.upda
 
 
 // ! Admin only routes !
-Route::namespace('admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function () {
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function () {
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
 });
